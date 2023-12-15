@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public protocol MahjongPai {
+public protocol MahjongPaiable {
     var name: String { get }
     var image: Image { get }
 }
@@ -20,7 +20,7 @@ public enum ShupaiCategory {
     case wanzi
 }
 
-public protocol Shupai: MahjongPai {
+public protocol Shupai: MahjongPaiable {
     var number: ShupaiNumber { get }
     var name: String { get }
     var category: ShupaiCategory { get }
@@ -67,7 +67,7 @@ public enum ZipaiCategory {
     case sangemPai
 }
 
-public protocol Zipai: MahjongPai {
+public protocol Zipai: MahjongPaiable {
     var name: String { get }
     var category: ZipaiCategory { get }
 }
