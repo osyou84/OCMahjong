@@ -47,4 +47,8 @@ public enum Wanzi: Shupai {
     public var name: String {
         "\(number.chinese)萬"
     }
+    
+    public var image: Image {
+        .init("0m\(number.rawValue)", bundle: .module)
+    }
 }

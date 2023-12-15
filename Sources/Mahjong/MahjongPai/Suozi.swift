@@ -45,4 +45,8 @@ public enum Suozi: Shupai {
     }
     
     public var name: String { "\(number.chinese)索" }
+    
+    public var image: Image {
+        .init("0s\(number.rawValue)", bundle: .module)
+    }
 }

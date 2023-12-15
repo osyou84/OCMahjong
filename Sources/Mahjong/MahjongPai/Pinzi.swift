@@ -47,4 +47,8 @@ public enum Pinzi: Shupai {
     public var name: String {
         "\(number.chinese)筒"
     }
+    
+    public var image: Image {
+        .init("0p\(number.rawValue)", bundle: .module)
+    }
 }

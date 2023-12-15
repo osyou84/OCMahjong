@@ -26,10 +26,6 @@ public protocol Shupai: MahjongPai {
     var category: ShupaiCategory { get }
 }
 
-public extension Shupai {
-    var image: Image { .init("0s\(number)", bundle: .module) }
-}
-
 public enum ShupaiNumber: Int {
     case yi = 1
     case liang = 2
