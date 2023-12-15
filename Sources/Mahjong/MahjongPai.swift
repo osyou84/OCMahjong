@@ -46,13 +46,6 @@ public protocol Shupai: MahjongPai {
     var category: ShupaiCategory { get }
 }
 
-public enum MahjongPaiStatus: Int {
-    case liPai
-    case daoPai
-    case daoPaiSideway
-}
-
 public protocol MahjongPai {
     var image: Image { get }
-    var status: MahjongPaiStatus { set get }
 }
