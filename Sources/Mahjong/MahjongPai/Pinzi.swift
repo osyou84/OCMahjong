@@ -19,6 +19,8 @@ public enum Pinzi: Shupai {
     case baPin
     case jiuPin
     
+    public var category: ShupaiCategory { .pinzi }
+    
     public var number: ShupaiNumber {
         switch self {
         case .yiPin:
@@ -45,6 +47,4 @@ public enum Pinzi: Shupai {
     public var name: String {
         "\(number.chinese)筒"
     }
-    
-    public var category: ShupaiCategory { .pinzi }
 }

@@ -19,6 +19,8 @@ public enum Suozi: Shupai {
     case baSuo
     case jiuSuo
     
+    public var category: ShupaiCategory { .suozi }
+    
     public var number: ShupaiNumber {
         switch self {
         case .yiSuo:
@@ -43,6 +45,4 @@ public enum Suozi: Shupai {
     }
     
     public var name: String { "\(number.chinese)索" }
-    
-    public var category: ShupaiCategory { .suozi }
 }

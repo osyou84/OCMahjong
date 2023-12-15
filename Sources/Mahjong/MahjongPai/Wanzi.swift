@@ -19,6 +19,8 @@ public enum Wanzi: Shupai {
     case baWan
     case jiuWan
     
+    public var category: ShupaiCategory { .wanzi }
+    
     public var number: ShupaiNumber {
         switch self {
         case .yiWan:
@@ -45,6 +47,4 @@ public enum Wanzi: Shupai {
     public var name: String {
         "\(number.chinese)萬"
     }
-    
-    public var category: ShupaiCategory { .wanzi }
 }

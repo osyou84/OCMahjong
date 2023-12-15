@@ -8,24 +8,12 @@
 import Foundation
 import SwiftUI
 
-public protocol SangenPai: Zipai {
-    
-}
-
-public protocol FungPai: Zipai {
-    
-}
-
-public enum ZipaiCategory {
-    case FungPai
-    case SangemPai
-}
-
-public protocol Zipai: MahjongPai {
+public protocol MahjongPai {
     var name: String { get }
-    var category: ZipaiCategory { get }
+    var image: Image { get }
 }
 
+// MARK: - 数牌
 public enum ShupaiCategory {
     case pinzi
     case suozi
@@ -77,7 +65,13 @@ public enum ShupaiNumber: Int {
     }
 }
 
-public protocol MahjongPai {
+// MARK: - 字牌
+public enum ZipaiCategory {
+    case fungPai
+    case sangemPai
+}
+
+public protocol Zipai: MahjongPai {
     var name: String { get }
-    var image: Image { get }
+    var category: ZipaiCategory { get }
 }
