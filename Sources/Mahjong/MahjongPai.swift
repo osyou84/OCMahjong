@@ -47,5 +47,6 @@ public protocol Shupai: MahjongPai {
 }
 
 public protocol MahjongPai {
+    var name: String { get }
     var image: Image { get }
 }

@@ -67,5 +67,5 @@ public enum Wanzi: Shupai {
     
     public var category: ShupaiCategory { .wanzi }
     
-    public var image: Image { .init("0m\(number)") }
+    public var image: Image { .init("0m\(number)", bundle: .module) }
 }
