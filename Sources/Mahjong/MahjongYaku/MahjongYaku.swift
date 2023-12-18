@@ -179,4 +179,85 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
             .noLimitation
         }
     }
+    
+    func evaluate(hands: [MahjongPaiable]) -> Bool {
+        switch self {
+        case .ready:
+            return false
+        case .ippatsu:
+            return false
+        case .tsumo:
+            return false
+        case .pinfu:
+            return false
+        case .tanyao:
+            return false
+        case .yakuhai:
+            return false
+        case .yipeiko:
+            return false
+        case .rinshanKaiho:
+            return false
+        case .chankan:
+            return false
+        case .haiteiRaoyue:
+            return false
+        case .hoteiRaoyui:
+            return false
+        case .sanshokuDoujun:
+            return false
+        case .toitoiho:
+            return false
+        case .ikkitsuukan:
+            return false
+        case .chanta:
+            return false
+        case .qitoitsu:
+            return false
+        case .sananko:
+            return false
+        case .sanshokuDouko:
+            return false
+        case .sankantsu:
+            return false
+        case .doubleReady:
+            return false
+        case .honiso:
+            return false
+        case .junchan:
+            return false
+        case .liangPeiko:
+            return false
+        case .shosangen:
+            return false
+        case .honroto:
+            return false
+        case .chinitsu:
+            return false
+        case .kokushiMuso:
+            return false
+        case .sianko:
+            return false
+        case .daisangen:
+            return false
+        case .shosishi:
+            return false
+        case .daisishi:
+            return false
+        case .ziiso:
+            return false
+        case .chinroto:
+            return false
+        case .ryuiso:
+            return false
+        case .jiurenpoto:
+            return false
+        case .sikantsu:
+            return false
+        case .tenho:
+            return false
+        case .chiho:
+            return false
+        }
+    }
 }
