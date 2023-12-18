@@ -263,14 +263,14 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
         case .chinroto:
             return false
         case .ryuiso:
-            let filteredHands = hands.compactMap {
+            let filteredHands = hands.filter {
                 if let sangenPai = $0 as? SangenPai { return sangenPai == .hatsu }
                 if let suozi = $0 as? Suozi { return suozi.isGreen }
                 
                 return false
             }
             
-            return filteredHands.count == MAX_HAND_PAI_COUNT
+            return filteredHands.count == hands.count
         case .jiurenpoto:
             return false
         case .sikantsu:

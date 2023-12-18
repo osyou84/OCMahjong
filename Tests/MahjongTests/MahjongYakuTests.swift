@@ -96,4 +96,43 @@ final class MahjongYakuTests: XCTestCase {
         ]
         XCTAssertFalse(yaku.evaluate(hands: fail1Hands))
     }
+    
+    func testIsRyuiso() {
+        yaku = MahjongYaku.ryuiso
+        
+        let correct1Hands: [MahjongPaiable] = [
+            SangenPai.hatsu, SangenPai.hatsu, SangenPai.hatsu,
+            Suozi.liuSuo, Suozi.liuSuo, Suozi.liuSuo,
+            Suozi.sanSuo, Suozi.sanSuo, Suozi.sanSuo,
+            Suozi.siSuo, Suozi.siSuo, Suozi.siSuo,
+            Suozi.baSuo, Suozi.baSuo
+        ]
+        XCTAssertTrue(yaku.evaluate(hands: correct1Hands))
+        
+        let correct2Hands: [MahjongPaiable] = [
+            Suozi.liuSuo, Suozi.sanSuo, Suozi.siSuo,
+            Suozi.liuSuo, Suozi.sanSuo, Suozi.siSuo,
+            Suozi.liuSuo, Suozi.liuSuo, Suozi.liuSuo,
+            Suozi.baSuo, Suozi.baSuo, Suozi.baSuo,
+            SangenPai.hatsu, SangenPai.hatsu
+        ]
+        XCTAssertTrue(yaku.evaluate(hands: correct2Hands))
+        
+        let correct3Hands: [MahjongPaiable] = [
+            Suozi.liuSuo, Suozi.liuSuo, Suozi.liuSuo, Suozi.liuSuo,
+            Suozi.sanSuo, Suozi.sanSuo, Suozi.sanSuo, Suozi.sanSuo,
+            Suozi.liuSuo, Suozi.liuSuo, Suozi.liuSuo, Suozi.liuSuo,
+            SangenPai.hatsu, SangenPai.hatsu, SangenPai.hatsu, SangenPai.hatsu
+        ]
+        XCTAssertTrue(yaku.evaluate(hands: correct3Hands))
+        
+        let fail1Hands: [MahjongPaiable] = [
+            Suozi.liuSuo, Suozi.liuSuo, Suozi.liuSuo,
+            Suozi.siSuo, Suozi.siSuo, Suozi.siSuo, Suozi.siSuo,
+            Suozi.liuSuo, Suozi.liuSuo, Suozi.liuSuo,
+            Suozi.jiuSuo, Suozi.jiuSuo, Suozi.jiuSuo,
+            SangenPai.hatsu, SangenPai.hatsu
+        ]
+        XCTAssertFalse(yaku.evaluate(hands: fail1Hands))
+    }
 }
