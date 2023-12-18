@@ -242,16 +242,17 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
             return false
         case .daisangen:
             let filteredHands = hands.compactMap { $0 as? SangenPai }
-            guard filteredHands.count == MAX_HAND_PAI_COUNT else { return false }
             
             let sangenPais = Dictionary(grouping: filteredHands, by: \.name).mapValues(\.count)
             for (_, count) in sangenPais {
-                guard count > 3 else { return false }
+                guard count >= 3 else {
+                    return false
+                }
                 
                 continue
             }
             
-            return false
+            return true
         case .shosishi:
             return false
         case .daisishi:
@@ -282,7 +283,7 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
         }
     }
     
-    private func isTenpai(hands: [MahjongPaiable]) -> Bool {
+    func isTenpai(hands: [MahjongPaiable]) -> Bool {
         return true
     }
 }

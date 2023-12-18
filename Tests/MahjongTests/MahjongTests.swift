@@ -1,5 +1,5 @@
 import XCTest
-@testable import OCMahjong
+@testable import Mahjong
 
 final class OCMahjongTests: XCTestCase {
     func testExample() throws {

@@ -16,13 +16,13 @@ public struct HandEvaluator {
     public var hands: [MahjongPaiable]
     
     public init(hands: [MahjongPaiable]) throws {
-        guard hands.count == 14 else {
+        guard MIN_HAND_PAI_COUNT...MAX_HAND_PAI_COUNT ~= hands.count else {
             throw HandEvaluatorError.incorrectNumberOfTiles
         }
 
         let tileCounts = Dictionary(grouping: hands, by: \.name).mapValues(\.count)
         for (_, count) in tileCounts {
-            if count > 4 {
+            if count > MAX_PAIS_OF_SAME_KIND {
                 throw HandEvaluatorError.excessiveTilesOfSameKind
             }
         }
