@@ -13,9 +13,9 @@ public enum HandEvaluatorError: Error {
 }
 
 public struct HandEvaluator {
-    private var hands: [MahjongPaiable]
+    public var hands: [MahjongPaiable]
     
-    init(hands: [MahjongPaiable]) throws {
+    public init(hands: [MahjongPaiable]) throws {
         guard hands.count == 14 else {
             throw HandEvaluatorError.incorrectNumberOfTiles
         }
@@ -30,7 +30,7 @@ public struct HandEvaluator {
         self.hands = hands
     }
     
-    func evaluateYaku() -> [MahjongYaku] {
+    public func evaluateYaku() -> [MahjongYaku] {
         var yakuList: [MahjongYaku] = []
         
         for yaku in MahjongYaku.allCases {
