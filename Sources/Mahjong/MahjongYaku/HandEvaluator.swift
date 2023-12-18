@@ -16,7 +16,7 @@ public struct HandEvaluator {
     public var hands: [MahjongPaiable]
     
     public init(hands: [MahjongPaiable]) throws {
-        guard MIN_HAND_PAI_COUNT...MAX_HAND_PAI_COUNT ~= hands.count else {
+        guard COLLECT_PAI_COUNT_RANGE ~= hands.count else {
             throw HandEvaluatorError.incorrectNumberOfTiles
         }
 
