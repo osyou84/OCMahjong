@@ -56,6 +56,15 @@ final class MahjongYakuTests: XCTestCase {
             Suozi.jiuSuo, Suozi.jiuSuo
         ]
         XCTAssertFalse(yaku.evaluate(hands: fail1Hands))
+        
+        let fail2Hands: [MahjongPaiable] = [
+            Wanzi.yiWan, Wanzi.liangWan, Wanzi.sanWan,
+            Wanzi.yiWan, Wanzi.liangWan, Wanzi.sanWan,
+            Wanzi.yiWan, Wanzi.liangWan, Wanzi.sanWan,
+            Pinzi.yiPin, Pinzi.liangPin, Pinzi.sanPin,
+            Suozi.jiuSuo, Suozi.jiuSuo
+        ]
+        XCTAssertFalse(yaku.evaluate(hands: fail2Hands))
     }
     
     func testIsZiiso() {

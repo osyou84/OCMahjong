@@ -244,6 +244,8 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
             let filteredHands = hands.compactMap { $0 as? SangenPai }
             
             let sangenPais = Dictionary(grouping: filteredHands, by: \.name).mapValues(\.count)
+            guard sangenPais.count == 3 else { return false }
+            
             for (_, count) in sangenPais {
                 guard count >= 3 else { return false }
                 
