@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public enum SangenPai: Zipai {
+public enum SangenPai: Zipai, CaseIterable {
     case haku
     case hatsu
     case chun

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public enum Suozi: Shupai {
+public enum Suozi: Shupai, CaseIterable {
     case yiSuo
     case liangSuo
     case sanSuo

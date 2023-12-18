@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public enum Wanzi: Shupai {
+public enum Wanzi: Shupai, CaseIterable {
     case yiWan
     case liangWan
     case sanWan

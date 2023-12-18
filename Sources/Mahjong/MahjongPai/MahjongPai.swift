@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+public let paiList: [MahjongPaiable] = Wanzi.allCases + Pinzi.allCases + Suozi.allCases + FungPai.allCases + SangenPai.allCases
+
 public protocol MahjongPaiable {
     var name: String { get }
     var image: Image { get }
