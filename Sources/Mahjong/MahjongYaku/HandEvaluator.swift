@@ -34,7 +34,7 @@ public struct HandEvaluator {
         var yakuList: [MahjongYaku] = []
         
         for yaku in MahjongYaku.allCases {
-            guard yaku.evaluate(hands: hands) else { break }
+            guard yaku.evaluate(hands: hands) else { continue }
             yakuList.append(yaku)
         }
         

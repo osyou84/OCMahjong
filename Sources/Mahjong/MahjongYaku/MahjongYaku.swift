@@ -257,7 +257,6 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
             return false
         case .ziiso:
             let filteredHands = hands.compactMap { $0 as? Zipai }
-            print(filteredHands)
             
             return filteredHands.count == hands.count
         case .chinroto:
