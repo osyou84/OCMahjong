@@ -21,13 +21,13 @@ public protocol MahjongYakuable {
     var isYakuman: Bool { get }
 }
 
-public enum MahjongYaku: MahjongYakuable {
+public enum MahjongYaku: MahjongYakuable, CaseIterable {
     case ready
     case ippatsu
     case tsumo
     case pinfu
     case tanyao
-    case yakuhai(zipai: Zipai)
+    case yakuhai
     case yipeiko
     case rinshanKaiho
     case chankan
@@ -67,7 +67,7 @@ public enum MahjongYaku: MahjongYakuable {
     
     public var hansu: Int? {
         switch self {
-        case .ready, .ippatsu, .tsumo, .pinfu, .tanyao, .yakuhai(_), .yipeiko, .rinshanKaiho, .chankan, .haiteiRaoyue, .hoteiRaoyui:
+        case .ready, .ippatsu, .tsumo, .pinfu, .tanyao, .yakuhai, .yipeiko, .rinshanKaiho, .chankan, .haiteiRaoyue, .hoteiRaoyui:
             1
         case .sanshokuDoujun, .toitoiho, .ikkitsuukan, .chanta, .qitoitsu, .sananko, .sanshokuDouko, .sankantsu, .doubleReady:
             2
@@ -98,8 +98,8 @@ public enum MahjongYaku: MahjongYakuable {
             "平和"
         case .tanyao:
             "断么九"
-        case let .yakuhai(zipai):
-            "役牌(\(zipai.name))"
+        case .yakuhai:
+            "役牌"
         case .yipeiko:
             "一盃口"
         case .rinshanKaiho:
