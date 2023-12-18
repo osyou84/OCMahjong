@@ -245,9 +245,7 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
             
             let sangenPais = Dictionary(grouping: filteredHands, by: \.name).mapValues(\.count)
             for (_, count) in sangenPais {
-                guard count >= 3 else {
-                    return false
-                }
+                guard count >= 3 else { return false }
                 
                 continue
             }
@@ -259,8 +257,9 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
             return false
         case .ziiso:
             let filteredHands = hands.compactMap { $0 as? Zipai }
+            print(filteredHands)
             
-            return filteredHands.count == MAX_HAND_PAI_COUNT
+            return filteredHands.count == hands.count
         case .chinroto:
             return false
         case .ryuiso:
