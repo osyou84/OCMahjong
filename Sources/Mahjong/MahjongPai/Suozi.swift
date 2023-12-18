@@ -49,4 +49,8 @@ public enum Suozi: Shupai, CaseIterable {
     public var image: Image {
         .init("0s\(number.rawValue)", bundle: .module)
     }
+    
+    var isGreen: Bool {
+        self == .liangSuo || self == .sanSuo || self == .siSuo || self == .liuSuo || self == .baSuo
+    }
 }

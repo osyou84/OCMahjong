@@ -181,6 +181,8 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
     }
     
     func evaluate(hands: [MahjongPaiable]) -> Bool {
+        guard isTenpai(hands: hands) else { return false }
+        
         switch self {
         case .ready:
             return false
@@ -239,17 +241,36 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
         case .sianko:
             return false
         case .daisangen:
+            let filteredHands = hands.compactMap { $0 as? SangenPai }
+            guard filteredHands.count == MAX_HAND_PAI_COUNT else { return false }
+            
+            let sangenPais = Dictionary(grouping: filteredHands, by: \.name).mapValues(\.count)
+            for (_, count) in sangenPais {
+                guard count > 3 else { return false }
+                
+                continue
+            }
+            
             return false
         case .shosishi:
             return false
         case .daisishi:
             return false
         case .ziiso:
-            return false
+            let filteredHands = hands.compactMap { $0 as? Zipai }
+            
+            return filteredHands.count == MAX_HAND_PAI_COUNT
         case .chinroto:
             return false
         case .ryuiso:
-            return false
+            let filteredHands = hands.compactMap {
+                if let sangenPai = $0 as? SangenPai { return sangenPai == .hatsu }
+                if let suozi = $0 as? Suozi { return suozi.isGreen }
+                
+                return false
+            }
+            
+            return filteredHands.count == MAX_HAND_PAI_COUNT
         case .jiurenpoto:
             return false
         case .sikantsu:
@@ -259,5 +280,9 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
         case .chiho:
             return false
         }
+    }
+    
+    private func isTenpai(hands: [MahjongPaiable]) -> Bool {
+        return true
     }
 }
