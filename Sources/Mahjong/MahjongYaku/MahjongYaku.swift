@@ -167,6 +167,10 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
         }
     }
     
+    public var description: String {
+        "役の説明"
+    }
+    
     public var limit: MahjongYakuLimit {
         switch self {
         case .ready, .ippatsu, .tsumo, .pinfu, .yipeiko, .qitoitsu, .doubleReady, .liangPeiko, .tenho, .chiho, .kokushiMuso, .jiurenpoto, .sianko:
@@ -177,6 +181,93 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
             .ankoOutsideNakiOk
         default:
             .noLimitation
+        }
+    }
+    
+    public var sampleHands: [MahjongPaiable] {
+        switch self {
+        case .ready:
+            []
+        case .ippatsu:
+            []
+        case .tsumo:
+            []
+        case .pinfu:
+            []
+        case .tanyao:
+            []
+        case .yakuhai:
+            []
+        case .yipeiko:
+            []
+        case .rinshanKaiho:
+            []
+        case .chankan:
+            []
+        case .haiteiRaoyue:
+            []
+        case .hoteiRaoyui:
+            []
+        case .sanshokuDoujun:
+            []
+        case .toitoiho:
+            []
+        case .ikkitsuukan:
+            []
+        case .chanta:
+            []
+        case .qitoitsu:
+            []
+        case .sananko:
+            []
+        case .sanshokuDouko:
+            []
+        case .sankantsu:
+            []
+        case .doubleReady:
+            []
+        case .honiso:
+            []
+        case .junchan:
+            []
+        case .liangPeiko:
+            []
+        case .shosangen:
+            []
+        case .honroto:
+            []
+        case .chinitsu:
+            [
+                Wanzi.yiWan, Wanzi.liangWan, Wanzi.sanWan,
+                Wanzi.siWan, Wanzi.wuWan, Wanzi.liuWan,
+                Wanzi.qiWan, Wanzi.qiWan, Wanzi.qiWan,
+                Wanzi.baWan, Wanzi.baWan, Wanzi.baWan,
+                Wanzi.jiuWan, Wanzi.jiuWan
+            ]
+        case .kokushiMuso:
+            []
+        case .sianko:
+            []
+        case .daisangen:
+            []
+        case .shosishi:
+            []
+        case .daisishi:
+            []
+        case .ziiso:
+            []
+        case .chinroto:
+            []
+        case .ryuiso:
+            []
+        case .jiurenpoto:
+            []
+        case .sikantsu:
+            []
+        case .tenho:
+            []
+        case .chiho:
+            []
         }
     }
     
