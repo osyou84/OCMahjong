@@ -263,9 +263,9 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
     
     public var limit: MahjongYakuLimit {
         switch self {
-        case .ready, .ippatsu, .tsumo, .pinfu, .yipeiko, .qitoitsu, .doubleReady, .liangPeiko, .tenho, .chiho, .kokushiMuso, .jiurenpoto, .sianko:
+        case .ready, .ippatsu, .tsumo, .pinfu, .yipeiko, .qitoitsu, .doubleReady, .liangPeiko, .tenho, .kokushiMuso, .jiurenpoto, .sianko:
             .memzenOnly
-        case .chanta:
+        case .sanshokuDoujun, .ikkitsuukan, .chanta, .honiso, .junchan, .chiho:
             .withKuiSagari(hansu: hansu ?? 1)
         case .sananko:
             .ankoOutsideNakiOk
