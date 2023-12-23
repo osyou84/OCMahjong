@@ -13,7 +13,7 @@ public enum MahjongYakuLimit {
     case ankoOutsideNakiOk
     case noLimitation
     
-    var description: String {
+    var text: String {
         switch self {
         case .memzenOnly:
             "門前のみ"
@@ -498,7 +498,7 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
         default:
             [
                 Pinzi.yiPin, Pinzi.yiPin,
-                Pinzi.liangPin, Pinzi.sanPin, Pinzi.sanPin,
+                Pinzi.liangPin, Pinzi.sanPin, Pinzi.siPin,
                 Wanzi.qiWan, Wanzi.baWan, Wanzi.jiuWan,
                 Suozi.wuSuo, Suozi.wuSuo, Suozi.wuSuo,
                 SangenPai.haku, SangenPai.haku, SangenPai.haku
