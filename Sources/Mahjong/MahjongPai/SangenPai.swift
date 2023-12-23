@@ -27,6 +27,6 @@ public enum SangenPai: Zipai, CaseIterable {
     }
     
     public var image: Image {
-        return .init("0j\(String(describing: self))", bundle: .module)
+        return .init("j\(String(describing: self))", bundle: .module)
     }
 }

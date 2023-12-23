@@ -49,6 +49,6 @@ public enum Pinzi: Shupai, CaseIterable {
     }
     
     public var image: Image {
-        .init("0p\(number.rawValue)", bundle: .module)
+        .init("p\(number.rawValue)", bundle: .module)
     }
 }

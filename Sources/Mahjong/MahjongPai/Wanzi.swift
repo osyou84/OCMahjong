@@ -49,6 +49,6 @@ public enum Wanzi: Shupai, CaseIterable {
     }
     
     public var image: Image {
-        .init("0m\(number.rawValue)", bundle: .module)
+        .init("m\(number.rawValue)", bundle: .module)
     }
 }
