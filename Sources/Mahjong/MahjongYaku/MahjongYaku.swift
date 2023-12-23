@@ -13,7 +13,7 @@ public enum MahjongYakuLimit {
     case ankoOutsideNakiOk
     case noLimitation
     
-    var text: String {
+    public var text: String {
         switch self {
         case .memzenOnly:
             "門前のみ"
