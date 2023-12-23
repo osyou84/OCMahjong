@@ -9,9 +9,22 @@ import Foundation
 
 public enum MahjongYakuLimit {
     case memzenOnly
-    case withKuiSagari
+    case withKuiSagari(hansu: Int)
     case ankoOutsideNakiOk
     case noLimitation
+    
+    var description: String {
+        switch self {
+        case .memzenOnly:
+            "門前のみ"
+        case .withKuiSagari(let hansu):
+            "食い下がり\(hansu - 1)飜"
+        case .ankoOutsideNakiOk:
+            "暗刻以外鳴き無し"
+        case .noLimitation:
+            "食い制限無し"
+        }
+    }
 }
 
 public protocol MahjongYakuable {
@@ -253,7 +266,7 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
         case .ready, .ippatsu, .tsumo, .pinfu, .yipeiko, .qitoitsu, .doubleReady, .liangPeiko, .tenho, .chiho, .kokushiMuso, .jiurenpoto, .sianko:
             .memzenOnly
         case .chanta:
-            .withKuiSagari
+            .withKuiSagari(hansu: hansu ?? 1)
         case .sananko:
             .ankoOutsideNakiOk
         default:
@@ -264,41 +277,135 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
     public var sampleHands: [MahjongPaiable] {
         switch self {
         case .pinfu:
-            []
+            [
+                Pinzi.yiPin, Pinzi.yiPin,
+                Wanzi.liangWan, Wanzi.sanWan, Wanzi.siWan,
+                Wanzi.wuWan, Wanzi.liuWan, Wanzi.qiWan,
+                Pinzi.liuPin, Pinzi.qiPin, Pinzi.baPin,
+                Suozi.liangSuo, Suozi.sanSuo, Suozi.siSuo
+            ]
         case .tanyao:
-            []
+            [
+                Pinzi.liangPin, Pinzi.liangPin,
+                Wanzi.liangWan, Wanzi.liangWan, Wanzi.liangWan,
+                Wanzi.wuWan, Wanzi.liuWan, Wanzi.qiWan,
+                Pinzi.baPin, Pinzi.baPin, Pinzi.baPin,
+                Suozi.liangSuo, Suozi.sanSuo, Suozi.siSuo
+            ]
         case .yakuhai:
-            []
+            [
+                Wanzi.yiWan, Wanzi.yiWan,
+                Wanzi.liangWan, Wanzi.sanWan, Wanzi.sanWan,
+                SangenPai.haku, SangenPai.haku, SangenPai.haku,
+                SangenPai.hatsu, SangenPai.hatsu, SangenPai.hatsu,
+                FungPai.dong, FungPai.dong, FungPai.dong,
+            ]
         case .yipeiko:
-            []
-        case .chankan:
-            []
+            [
+                SangenPai.haku, SangenPai.haku,
+                Wanzi.yiWan, Wanzi.yiWan, Wanzi.liangWan,
+                Wanzi.liangWan, Wanzi.sanWan, Wanzi.sanWan,
+                Suozi.liuSuo, Suozi.liuSuo, Suozi.liuSuo,
+                Suozi.qiSuo, Suozi.qiSuo, Suozi.qiSuo,
+            ]
         case .sanshokuDoujun:
-            []
-        case .toitoiho:
-            []
+            [
+                FungPai.dong, FungPai.dong,
+                Wanzi.yiWan, Wanzi.liangWan, Wanzi.sanWan,
+                Pinzi.yiPin, Pinzi.liangPin, Pinzi.sanPin,
+                Suozi.yiSuo, Suozi.liangSuo, Suozi.sanSuo,
+                FungPai.bei, FungPai.bei, FungPai.bei,
+            ]
         case .ikkitsuukan:
-            []
+            [
+                SangenPai.haku, SangenPai.haku,
+                Wanzi.yiWan, Wanzi.liangWan, Wanzi.sanWan,
+                Wanzi.siWan, Wanzi.wuWan, Wanzi.liuWan,
+                Wanzi.qiWan, Wanzi.baWan, Wanzi.jiuWan,
+                Pinzi.jiuPin, Pinzi.jiuPin, Pinzi.jiuPin
+            ]
         case .chanta:
-            []
+            [
+                SangenPai.chun, SangenPai.chun,
+                Wanzi.yiWan, Wanzi.yiWan, Wanzi.liangWan,
+                Wanzi.qiWan, Wanzi.baWan, Wanzi.jiuWan,
+                Pinzi.qiPin, Pinzi.baPin, Pinzi.jiuPin,
+                FungPai.dong, FungPai.dong, FungPai.dong
+            ]
         case .qitoitsu:
-            []
+            [
+                Wanzi.yiWan, Wanzi.yiWan,
+                Wanzi.liuWan, Wanzi.liuWan,
+                Pinzi.sanPin, Pinzi.sanPin,
+                Suozi.jiuSuo, Suozi.jiuSuo,
+                Suozi.qiSuo, Suozi.qiSuo,
+                FungPai.xi, FungPai.xi,
+                FungPai.bei, FungPai.bei,
+            ]
         case .sananko:
-            []
+            [
+                FungPai.xi, FungPai.xi,
+                Wanzi.liuWan, Wanzi.qiWan, Wanzi.baWan,
+                Pinzi.yiPin, Pinzi.yiPin, Pinzi.yiPin,
+                FungPai.bei, FungPai.bei, FungPai.bei,
+                SangenPai.haku, SangenPai.haku, SangenPai.haku,
+            ]
         case .sanshokuDouko:
-            []
+            [
+                FungPai.dong, FungPai.dong,
+                Wanzi.yiWan, Wanzi.yiWan, Wanzi.yiWan,
+                Pinzi.yiPin, Pinzi.yiPin, Pinzi.yiPin,
+                Suozi.yiSuo, Suozi.yiSuo, Suozi.yiSuo,
+                FungPai.bei, FungPai.bei, FungPai.bei,
+            ]
         case .sankantsu:
-            []
+            [
+                Pinzi.jiuPin, Pinzi.jiuPin,
+                FungPai.dong, FungPai.dong, FungPai.dong,
+                Wanzi.yiWan, Wanzi.yiWan, Wanzi.yiWan, Wanzi.yiWan,
+                Pinzi.sanPin, Pinzi.sanPin, Pinzi.sanPin, Pinzi.sanPin,
+                Suozi.jiuSuo, Suozi.jiuSuo, Suozi.jiuSuo, Suozi.jiuSuo,
+            ]
         case .honiso:
-            []
+            [
+                SangenPai.chun, SangenPai.chun,
+                Wanzi.yiWan, Wanzi.liangWan, Wanzi.sanWan,
+                Wanzi.siWan, Wanzi.wuWan, Wanzi.liuWan,
+                Wanzi.qiWan, Wanzi.qiWan, Wanzi.qiWan,
+                FungPai.dong, FungPai.dong, FungPai.dong
+            ]
         case .junchan:
-            []
+            [
+                Wanzi.jiuWan, Wanzi.jiuWan,
+                Wanzi.yiWan, Wanzi.yiWan, Wanzi.liangWan,
+                Wanzi.qiWan, Wanzi.baWan, Wanzi.jiuWan,
+                Pinzi.qiPin, Pinzi.baPin, Pinzi.jiuPin,
+                Suozi.qiSuo, Suozi.baSuo, Suozi.jiuSuo
+            ]
         case .liangPeiko:
-            []
+            [
+                SangenPai.haku, SangenPai.haku,
+                Wanzi.yiWan, Wanzi.yiWan, Wanzi.liangWan,
+                Wanzi.liangWan, Wanzi.sanWan, Wanzi.sanWan,
+                Suozi.liuSuo, Suozi.liuSuo, Suozi.qiSuo,
+                Suozi.qiSuo, Suozi.baSuo, Suozi.baSuo,
+            ]
         case .shosangen:
-            []
+            [
+                SangenPai.haku, SangenPai.haku,
+                FungPai.dong, FungPai.dong, FungPai.dong,
+                Wanzi.yiWan, Wanzi.liangWan, Wanzi.sanWan,
+                SangenPai.hatsu, SangenPai.hatsu, SangenPai.hatsu,
+                SangenPai.chun, SangenPai.chun, SangenPai.chun,
+            ]
         case .honroto:
-            []
+            [
+                Wanzi.yiWan, Wanzi.yiWan,
+                Wanzi.jiuWan, Wanzi.jiuWan, Wanzi.jiuWan,
+                Suozi.yiSuo, Suozi.yiSuo, Suozi.yiSuo,
+                Pinzi.yiPin, Pinzi.yiPin, Pinzi.yiPin,
+                FungPai.bei, FungPai.bei, FungPai.bei
+            ]
         case .chinitsu:
             [
                 Wanzi.jiuWan, Wanzi.jiuWan,
@@ -314,7 +421,7 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
                 SangenPai.haku, SangenPai.hatsu, SangenPai.chun,
                 SangenPai.chun
             ]
-        case .sianko:
+        case .sianko, .toitoiho:
             [
                 FungPai.xi, FungPai.xi,
                 Wanzi.liuWan, Wanzi.liuWan, Wanzi.liuWan,
@@ -382,6 +489,7 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
             ]
         case .sikantsu:
             [
+                FungPai.bei, FungPai.bei,
                 Wanzi.yiWan, Wanzi.yiWan, Wanzi.yiWan, Wanzi.yiWan,
                 Pinzi.sanPin, Pinzi.sanPin, Pinzi.sanPin, Pinzi.sanPin,
                 Suozi.jiuSuo, Suozi.jiuSuo, Suozi.jiuSuo, Suozi.jiuSuo,
