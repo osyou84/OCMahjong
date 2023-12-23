@@ -183,21 +183,21 @@ public enum MahjongYaku: MahjongYakuable, CaseIterable {
     public var description: String {
         switch self {
         case .ready:
-            "立直の説明"
+            "門前で聴牌して「立直（リーチ）」と宣言することで成立する役です。"
         case .ippatsu:
-            "一発の説明"
+            "立直をかけてから1巡内に和了ると成立する役です。和了る前に他家に鳴かれた場合は無効となります。"
         case .tsumo:
-            "自摸の説明"
+            "門前で聴牌した状態で、自摸によって和了ると成立する役です。"
         case .pinfu:
-            "平和の説明"
+            "面前で四つの順子と役牌以外の牌を雀頭で構成され、両面待ちの状態から和了った場合に成立する役です。"
         case .tanyao:
-            "断么の説明"
+            "幺九牌（一・九・字牌）以外で構成すると成立する役です。"
         case .yakuhai:
-            "役牌の説明"
+            "三元牌、自風牌、場風牌の刻子で成立する役です。基本は一飜役ですが、自風と場風が同じ場合は二飜となります。"
         case .yipeiko:
-            "一盃口の説明"
+            "説明"
         case .rinshanKaiho:
-            "嶺上開花の説明"
+            "説明"
         case .chankan:
             "説明"
         case .haiteiRaoyue:
