@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-public enum MahjongPoint: Int {
+public enum MahjongPoint: Int, CaseIterable {
     case oneHundred = 100
     case oneThousand = 1000
     case fiveThousand = 5000
     case tenThousand = 10000
     
-    var image: Image {
+    public var image: Image {
         switch self {
         case .oneHundred:
             .init("p100", bundle: .module)
