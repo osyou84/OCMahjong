@@ -29,13 +29,13 @@ public enum MahjongPoint: Int, CaseIterable {
     public var color: Color {
         switch self {
         case .oneHundred:
-            Color(red: 231/255, green: 0, blue: 18/255)
+            Color(red: 255/255, green: 255/255, blue: 255)
         case .oneThousand:
             Color(red: 0, green: 104/255, blue: 183/255)
         case .fiveThousand:
             Color(red: 243/255, green: 150/255, blue: 0)
         case .tenThousand:
-            Color(red: 255/255, green: 255/255, blue: 255)
+            Color(red: 231/255, green: 0, blue: 18/255)
         }
     }
 }
