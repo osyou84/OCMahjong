@@ -8,9 +8,18 @@
 import Foundation
 
 public struct Score {
-    public enum NumberOfPeople: Int {
+    public enum NumberOfPeople: Int, CaseIterable {
         case three = 3
         case four = 4
+        
+        var label: String {
+            switch self {
+            case .three:
+                "3人"
+            case .four:
+                "4人"
+            }
+        }
     }
     
     public let isParent: Bool
