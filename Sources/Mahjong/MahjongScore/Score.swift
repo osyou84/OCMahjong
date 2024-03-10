@@ -201,7 +201,7 @@ public struct Score {
         }
     }
     
-    public func getRonPoint(deposit: Int? = nil, roundNumber: Int = .zero) -> Int? {
+    public func getRonPoint() -> Int? {
         switch numberOfPeople {
         case .three:
             switch doubles.value {

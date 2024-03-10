@@ -9,11 +9,11 @@ import Foundation
 
 public struct Doubles: Equatable {
     public let value: Int
-    public static let min: Doubles = .init(value: 1)
+    public static let min: Int = 1
     
     public init(value: Int) {
-        guard value >= Self.min.value else {
-            self.value = Self.min.value
+        guard value >= Self.min else {
+            self.value = Self.min
             return
         }
         
