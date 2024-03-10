@@ -14,6 +14,7 @@ public struct Doubles {
     init(value: Int) {
         guard value >= Self.min else {
             self.value = Self.min
+            return
         }
         
         self.value = value
