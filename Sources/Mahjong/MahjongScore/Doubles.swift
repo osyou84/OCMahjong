@@ -11,7 +11,7 @@ public struct Doubles: Equatable {
     public let value: Int
     public static let min: Doubles = .init(value: 1)
     
-    init(value: Int) {
+    public init(value: Int) {
         guard value >= Self.min.value else {
             self.value = Self.min.value
             return
