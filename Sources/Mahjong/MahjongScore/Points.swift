@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum Points: Int {
+public enum Points: Int, CaseIterable {
     case twenty = 20
     case twentyFive = 25
     case thirty = 30
