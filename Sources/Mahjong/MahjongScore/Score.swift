@@ -194,8 +194,117 @@ public struct Score {
         }
     }
     
-    public func getRonPoint(deposit: Int? = nil, roundNumber: Int = .zero) -> Int {
-        // var point = getBonus(deposit: deposit, roundNumber: roundNumber)
+    public func getRonPoint(deposit: Int? = nil, roundNumber: Int = .zero) -> Int? {
+        switch numberOfPeople {
+        case .three:
+            switch doubles.value {
+            case 1:
+                break
+            case 2:
+                break
+            case 3:
+                break
+            case 4:
+                break
+            case 5:
+                break
+            case 6...7:
+                break
+            case 8...10:
+                break
+            case 11...12:
+                break
+            default:
+                break
+            }
+        case .four:
+            switch doubles.value {
+            case 1:
+                switch points {
+                case .twenty, .twentyFive:
+                    return nil
+                case .thirty:
+                    return isParent ? 1500 : 1000
+                case .forty:
+                    return isParent ? 2000 : 1300
+                case .fifty:
+                    return isParent ? 2400 : 1600
+                case .sixty:
+                    return isParent ? 2900 : 2000
+                case .seventy:
+                    return isParent ? 3400 : 2300
+                case .eighty:
+                    return isParent ? 3900 : 2600
+                case .ninety:
+                    return isParent ? 4400 : 2900
+                case .hundred:
+                    return isParent ? 4800 : 3200
+                case .oneHundredTen:
+                    return isParent ? 5300 : 3600
+                }
+            case 2:
+                switch points {
+                case .twenty:
+                    return nil
+                case .twentyFive:
+                    return isParent ? 2400 : 1600
+                case .thirty:
+                    return isParent ? 2900 : 2000
+                case .forty:
+                    return isParent ? 3900 : 2600
+                case .fifty:
+                    return isParent ? 4800 : 3200
+                case .sixty:
+                    return isParent ? 5800 : 3900
+                case .seventy:
+                    return isParent ? 6800 : 4500
+                case .eighty:
+                    return isParent ? 7700 : 5200
+                case .ninety:
+                    return isParent ? 8700 : 5800
+                case .hundred:
+                    return isParent ? 9600 : 6400
+                case .oneHundredTen:
+                    return isParent ? 10600 : 7100
+                }
+            case 3:
+                switch points {
+                case .twenty:
+                    return nil
+                case .twentyFive:
+                    return isParent ? 2400 : 3200
+                case .thirty:
+                    return isParent ? 2900 : 3900
+                case .forty:
+                    return isParent ? 3900 : 5200
+                case .fifty:
+                    return isParent ? 4800 : 6400
+                default:
+                    return isParent ? 12000 : 8000
+                }
+            case 4:
+                switch points {
+                case .twenty:
+                    return nil
+                case .twentyFive:
+                    return isParent ? 9600 : 6400
+                case .thirty:
+                    return isParent ? 11600 : 7700
+                default:
+                    return isParent ? 12000 : 8000
+                }
+            case 5:
+                return isParent ? 12000 : 8000
+            case 6...7:
+                return isParent ? 18000 : 12000
+            case 8...10:
+                return isParent ? 24000 : 18000
+            case 11...12:
+                return isParent ? 32000 : 24000
+            default:
+                return isParent ? 48000 : 32000
+            }
+        }
         
         return .zero
     }
