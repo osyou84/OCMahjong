@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public enum MahjongPoint: Int, CaseIterable {
+public enum Stick: Int, CaseIterable {
     case oneHundred = 100
     case oneThousand = 1000
     case fiveThousand = 5000

@@ -26,6 +26,7 @@ let package = Package(
         ),
         .testTarget(
             name: "MahjongTests",
-            dependencies: ["Mahjong"]),
+            dependencies: ["Mahjong"]
+        ),
     ]
 )
