@@ -17,7 +17,14 @@ public struct Score {
     
     public let doubles: Doubles
     public let points: Points
-    public let numberOfPeople: NumberOfPeople = .four
+    public let numberOfPeople: NumberOfPeople
+    
+    public init(isParent: Bool, doubles: Doubles, points: Points, numberOfPeople: NumberOfPeople) {
+        self.isParent = isParent
+        self.doubles = doubles
+        self.points = points
+        self.numberOfPeople = numberOfPeople
+    }
         
     public func getThumoPoint() -> (parent: Int, child: Int)? {
         switch numberOfPeople {
