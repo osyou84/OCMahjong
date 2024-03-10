@@ -24,13 +24,75 @@ public struct Score {
         case .three:
             switch doubles.value {
             case 1:
-                break
+                switch points {
+                case .twenty, .twentyFive, .oneHundredTen:
+                    return nil
+                case .thirty:
+                    return isParent ? (800, 800) : (700, 500)
+                case .forty:
+                    return isParent ? (1100, 1100) : (900, 600)
+                case .fifty:
+                    return isParent ? (1200, 1200) : (1000, 600)
+                case .sixty:
+                    return isParent ? (1500, 1500) : (1300, 800)
+                case .seventy:
+                    return isParent ? (1800, 1800) : (1500, 900)
+                case .eighty:
+                    return isParent ? (2000, 2000) : (1700, 1100)
+                case .ninety:
+                    return isParent ? (2300, 2300) : (1900, 1200)
+                case .hundred:
+                    return isParent ? (2400, 2400) : (2000, 1200)
+                }
             case 2:
-                break
+                switch points {
+                case .twenty:
+                    return isParent ? (1100, 1100) : (900, 600)
+                case .twentyFive:
+                    return nil
+                case .thirty:
+                    return isParent ? (1500, 1500) : (1300, 800)
+                case .forty:
+                    return isParent ? (2000, 2000) : (1700, 1100)
+                case .fifty:
+                    return isParent ? (2400, 2400) : (2000, 1200)
+                case .sixty:
+                    return isParent ? (3000, 3000) : (2500, 1500)
+                case .seventy:
+                    return isParent ? (3500, 3500) : (2900, 1800)
+                case .eighty:
+                    return isParent ? (3900, 3900) : (3300, 2000)
+                case .ninety:
+                    return isParent ? (4400, 4400) : (3700, 2300)
+                case .hundred:
+                    return isParent ? (4800, 4800) : (4000, 2400)
+                case .oneHundredTen:
+                    return isParent ? (5400, 5400) : (4500, 2700)
+                }
             case 3:
-                break
+                switch points {
+                case .twenty:
+                    return isParent ? (2000, 1300) : (1700, 1100)
+                case .twentyFive:
+                    return isParent ? (2400, 1600) : (2000, 1200)
+                case .thirty:
+                    return isParent ? (3000, 2000) : (2500, 1500)
+                case .forty:
+                    return isParent ? (3900, 2600) : (3300, 2000)
+                case .fifty:
+                    return isParent ? (4800, 3200) : (4000, 2400)
+                default:
+                    return isParent ? (6000, 6000) : (5000, 3000)
+                }
             case 4:
-                break
+                switch points {
+                case .twenty:
+                    return isParent ? (3900, 3900) : (3300, 2000)
+                case .twentyFive:
+                    return isParent ? (4800, 4800) : (4000, 2400)
+                default:
+                    return isParent ? (6000, 6000) : (5000, 3000)
+                }
             case 5:
                 return isParent ? (6000, 6000) : (5000, 3000)
             case 6...7:
@@ -42,8 +104,6 @@ public struct Score {
             default:
                 return isParent ? (24000, 24000) : (20000, 12000)
             }
-            
-            return nil
         case .four:
             switch doubles.value {
             case 1:
