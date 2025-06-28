@@ -23,7 +23,7 @@ public enum ShupaiCategory: CaseIterable {
     case wanzi
 }
 
-public protocol Shupai: MahjongPaiable, Hashable {
+public protocol Shupai: MahjongPaiable {
     var number: ShupaiNumber { get }
     var name: String { get }
     var category: ShupaiCategory { get }
