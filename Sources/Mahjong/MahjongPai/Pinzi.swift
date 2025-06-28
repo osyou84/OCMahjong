@@ -52,4 +52,20 @@ public enum Pinzi: Shupai, CaseIterable {
     public var image: Image {
         .init("p\(number.rawValue)", bundle: .module)
     }
+    
+    public init (number: Int) {
+        switch number {
+        case 1: self = .yiPin
+        case 2: self = .liangPin
+        case 3: self = .sanPin
+        case 4: self = .siPin
+        case 5: self = .wuPin
+        case 6: self = .liuPin
+        case 7: self = .qiPin
+        case 8: self = .baPin
+        case 9: self = .jiuPin
+        default:
+            fatalError("Invalid number \(number)")
+        }
+    }
 }

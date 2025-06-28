@@ -52,4 +52,20 @@ public enum Wanzi: Shupai, CaseIterable {
     public var image: Image {
         .init("m\(number.rawValue)", bundle: .module)
     }
+    
+    public init (number: Int) {
+        switch number {
+        case 1: self = .yiWan
+        case 2: self = .liangWan
+        case 3: self = .sanWan
+        case 4: self = .siWan
+        case 5: self = .wuWan
+        case 6: self = .liuWan
+        case 7: self = .qiWan
+        case 8: self = .baWan
+        case 9: self = .jiuWan
+        default:
+            fatalError("Invalid number \(number)")
+        }
+    }
 }
