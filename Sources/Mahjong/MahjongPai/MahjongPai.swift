@@ -17,7 +17,7 @@ public protocol MahjongPaiable {
 }
 
 // MARK: - 数牌
-public enum ShupaiCategory {
+public enum ShupaiCategory: CaseIterable {
     case pinzi
     case suozi
     case wanzi
