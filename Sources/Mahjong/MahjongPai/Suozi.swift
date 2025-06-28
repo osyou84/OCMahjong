@@ -19,6 +19,7 @@ public enum Suozi: Shupai, CaseIterable {
     case baSuo
     case jiuSuo
     
+    public var id: UUID { .init() }
     public var category: ShupaiCategory { .suozi }
     
     public var number: ShupaiNumber {

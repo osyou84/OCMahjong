@@ -19,6 +19,7 @@ public enum Wanzi: Shupai, CaseIterable {
     case baWan
     case jiuWan
     
+    public var id: UUID { .init() }
     public var category: ShupaiCategory { .wanzi }
     
     public var number: ShupaiNumber {

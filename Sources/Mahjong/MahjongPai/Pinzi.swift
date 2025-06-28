@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public enum Pinzi: Shupai, CaseIterable {
+public enum Pinzi: Shupai, CaseIterable {    
     case yiPin
     case liangPin
     case sanPin
@@ -19,6 +19,7 @@ public enum Pinzi: Shupai, CaseIterable {
     case baPin
     case jiuPin
     
+    public var id: UUID { .init() }
     public var category: ShupaiCategory { .pinzi }
     
     public var number: ShupaiNumber {

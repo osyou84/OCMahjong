@@ -11,6 +11,7 @@ import SwiftUI
 public let paiList: [MahjongPaiable] = Wanzi.allCases + Pinzi.allCases + Suozi.allCases + FungPai.allCases + SangenPai.allCases
 
 public protocol MahjongPaiable {
+    var id: UUID { get }
     var name: String { get }
     var image: Image { get }
 }

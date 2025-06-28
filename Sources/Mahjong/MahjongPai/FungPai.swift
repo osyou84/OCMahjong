@@ -14,6 +14,7 @@ public enum FungPai: Zipai, CaseIterable {
     case xi
     case bei
     
+    public var id: UUID { .init() }
     public var category: ZipaiCategory { .fungPai }
     
     public var name: String {

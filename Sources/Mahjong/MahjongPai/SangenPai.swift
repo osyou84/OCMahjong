@@ -13,6 +13,7 @@ public enum SangenPai: Zipai, CaseIterable {
     case hatsu
     case chun
     
+    public var id: UUID { .init() }
     public var category: ZipaiCategory { .sangemPai }
     
     public var name: String {
