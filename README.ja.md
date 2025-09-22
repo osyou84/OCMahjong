@@ -1,4 +1,6 @@
 # OCMahjong
+![Platforms](https://img.shields.io/badge/platforms-ios-lightgrey.svg)
+![Swift version](https://img.shields.io/badge/swift-5.9-orange.svg)
 
 [English README](./README.md)
 
