@@ -1,5 +1,7 @@
 # OCMahjong
 
+[日本語README](./README.ja.md)
+
 OCMahjong is an open-source library for Mahjong hand evaluation, score calculation, and tile-efficiency analysis.
 
 ## Features
