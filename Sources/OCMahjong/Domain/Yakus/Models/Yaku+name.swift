@@ -46,7 +46,7 @@ public extension Yaku {
             "三色同刻"
         case .sankantsu:
             "三槓子"
-        case .doubleReady:
+        case .doubleRiichi:
             "ダブル立直"
         case .honiso:
             "混一色"

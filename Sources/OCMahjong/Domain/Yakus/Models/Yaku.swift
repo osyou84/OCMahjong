@@ -28,7 +28,7 @@ public enum Yaku: YakuProtocol, CaseIterable {
     case sananko
     case sanshokuDouko
     case sankantsu
-    case doubleReady
+    case doubleRiichi
     
     case honiso
     case junchan
@@ -55,7 +55,7 @@ public enum Yaku: YakuProtocol, CaseIterable {
         switch self {
         case .riichi, .ippatsu, .tsumo, .pinfu, .tanyao, .yakuhai, .iipeiko, .rinshanKaiho, .chankan, .haiteiRaoyue, .hoteiRaoyui:
             1
-        case .sanshokuDoujun, .toitoiho, .ikkitsuukan, .chanta, .chitoitsu, .sananko, .sanshokuDouko, .sankantsu, .doubleReady:
+        case .sanshokuDoujun, .toitoiho, .ikkitsuukan, .chanta, .chitoitsu, .sananko, .sanshokuDouko, .sankantsu, .doubleRiichi:
             2
         case .honiso, .junchan, .ryanPeiko:
             3
@@ -74,7 +74,7 @@ public enum Yaku: YakuProtocol, CaseIterable {
     
     public var limit: YakuLimit {
         switch self {
-        case .riichi, .ippatsu, .tsumo, .pinfu, .iipeiko, .chitoitsu, .doubleReady, .ryanPeiko, .tenho, .kokushiMuso, .churenpoto, .suanko:
+        case .riichi, .ippatsu, .tsumo, .pinfu, .iipeiko, .chitoitsu, .doubleRiichi, .ryanPeiko, .tenho, .kokushiMuso, .churenpoto, .suanko:
             .memzenOnly
         case .sanshokuDoujun, .ikkitsuukan, .chanta, .honiso, .junchan, .chiho:
             .withKuiSagari(hansu: hansu ?? 1)
