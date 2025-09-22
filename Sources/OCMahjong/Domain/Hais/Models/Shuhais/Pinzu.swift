@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
 public enum Pinzu: Shupai {
     case iiPin // yiPin
     case ryanPin // liangPin
     case sanPin // sanPin
     case suPin // siPin
-    case uuPin // wuPin
+    case uuPin(isRed: Bool) // wuPin
     case roPin // liuPin
     case chiPin // qiPin
     case paaPin // baPin
@@ -37,6 +38,21 @@ public enum Pinzu: Shupai {
         case .chiPin: return .seven
         case .paaPin: return .eight
         case .kyuPin: return .nine
+        }
+    }
+}
+
+// MARK: - UIs
+extension Pinzu {
+    public var name: String {
+        "\(number.rawValue.kansuji)筒"
+    }
+    
+    public var image: Image {
+        if case .uuPin(let isRed) = self {
+            Image(isRed ? "\(id)r" : id)
+        } else {
+            Image(id)
         }
     }
 }

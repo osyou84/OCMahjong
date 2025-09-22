@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
 public enum Manzu: Shupai {
     case iiMan // yiwan
     case ryanMan // liangwan
     case sanMan // sanwan
     case suMan // siwan
-    case uuMan // wuwan
+    case uuMan(isRed: Bool) // wuwan
     case roMan // liuwan
     case chiMan // qiwan
     case paaMan // bawan
@@ -37,6 +38,21 @@ public enum Manzu: Shupai {
         case .chiMan: return .seven
         case .paaMan: return .eight
         case .kyuMan: return .nine
+        }
+    }
+}
+
+// MARK: - UIs
+extension Manzu {
+    public var name: String {
+        "\(number.rawValue.kansuji)萬"
+    }
+    
+    public var image: Image {
+        if case .uuMan(let isRed) = self {
+            Image(isRed ? "\(id)r" : id)
+        } else {
+            Image(id)
         }
     }
 }

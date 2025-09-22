@@ -6,12 +6,16 @@
 //
 
 import Foundation
+import SwiftUI
 
 /// Base protocol for all tiles. Conforming types provide a stable identifier
 /// and their high-level category via `haiType`.
 public protocol Hai: Identifiable {
     var id: String { get }
     var haiType: HaiType { get }
+    
+    var name: String { get }
+    var image: Image { get }
 }
 
 /// Suited tile: adds the suit (manzu/pinzu/souzu) and a valid number.
@@ -33,14 +37,4 @@ public protocol Jihai: Hai {
 /// Default mapping from `Honor` to its `HaiType`.
 public extension Jihai where Self: Hai {
     var haiType: HaiType { .jihai }
-}
-
-/// Bonus tile: flowers and seasons via `HanahaiType`.
-public protocol Hanahai: Hai {
-    var hanahaiType: HanahaiType { get }
-}
-
-/// Default mapping from `Bonus` to its `HaiType`.
-public extension Hanahai where Self: Hai {
-    var haiType: HaiType { .hanahai }
 }

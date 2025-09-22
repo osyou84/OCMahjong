@@ -11,7 +11,6 @@ import Foundation
 public enum HaiType {
     case shupai // suits
     case jihai // honors
-    case hanahai
 }
 
 /// The three suited tile families.
@@ -25,10 +24,4 @@ public enum ShuhaiType {
 public enum JihaiType {
     case kazehai(Kazehai) // winds
     case sangenpai(Sangenpai) // dragons
-}
-
-/// Bonus tiles.
-public enum HanahaiType {
-    case kisetsuhai(Kisetsuhai) // seasons
-    case soumokuhai(Soumokuhai) // flowers
 }

@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftUI
 
-/// Wind tiles (Kazehai: East, South, West, North).
+/// Wind tiles.
 public enum Kazehai: Int, Jihai {
     case ton = 1 // east / dong
     case nan = 2 // south / nan
@@ -25,5 +26,21 @@ public enum Kazehai: Int, Jihai {
         case .sya: return "Sk"
         case .pei: return "Pk"
         }
+    }
+}
+
+// MARK: - UIs
+extension Kazehai {
+    public var name: String {
+        switch self {
+        case .ton: return "東"
+        case .nan: return "南"
+        case .sya: return "西"
+        case .pei: return "北"
+        }
+    }
+    
+    public var image: Image {
+        Image(id)
     }
 }

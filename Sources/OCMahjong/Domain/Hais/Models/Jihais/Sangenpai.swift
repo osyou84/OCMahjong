@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftUI
 
-/// Dragon tiles (Sangenpai: White, Green, Red).
+/// Dragon tiles.
 ///
 /// Note: The ordering (white = 1, green = 2, red = 3) follows Japanese Mahjong
 /// conventions (白・發・中). Keep this order if you rely on raw values for
@@ -27,5 +28,20 @@ public enum Sangenpai: Int, Jihai, CaseIterable {
         case .hatsu: return "Gs"
         case .chun: return "Rs"
         }
+    }
+}
+
+// MARK: - UIs
+extension Sangenpai {
+    public var name: String {
+        switch self {
+        case .haku: return "白"
+        case .hatsu: return "發"
+        case .chun: return "中"
+        }
+    }
+    
+    public var image: Image {
+        Image(id)
     }
 }

@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
 public enum Souzu: Shupai {
     case iiSou // yiSuo
     case ryanSou // liangSuo
     case sanSou // sanSuo
     case suSou // siSuo
-    case uuSou // wuSuo
+    case uuSou(isRed: Bool) // wuSuo
     case roSou // liuSuo
     case chiSou // qiSuo
     case paaSou // baSuo
@@ -37,6 +38,21 @@ public enum Souzu: Shupai {
         case .chiSou: return .seven
         case .paaSou: return .eight
         case .kyuSou: return .nine
+        }
+    }
+}
+
+// MARK: - UIs
+extension Souzu {
+    public var name: String {
+        "\(number.rawValue.kansuji)索"
+    }
+    
+    public var image: Image {
+        if case .uuSou(let isRed) = self {
+            Image(isRed ? "\(id)r" : id)
+        } else {
+            Image(id)
         }
     }
 }
