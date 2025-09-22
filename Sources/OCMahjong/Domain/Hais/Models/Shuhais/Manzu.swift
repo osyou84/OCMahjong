@@ -8,12 +8,12 @@
 import Foundation
 import SwiftUI
 
-public enum Manzu: Shupai {
+public enum Manzu: Shupai, CaseIterable {
     case iiMan // yiwan
     case ryanMan // liangwan
     case sanMan // sanwan
     case suMan // siwan
-    case uuMan(isRed: Bool) // wuwan
+    case uuMan // wuwan
     case roMan // liuwan
     case chiMan // qiwan
     case paaMan // bawan
@@ -49,10 +49,6 @@ extension Manzu {
     }
     
     public var image: Image {
-        if case .uuMan(let isRed) = self {
-            Image(isRed ? "\(id)r" : id)
-        } else {
-            Image(id)
-        }
+        Image(id)
     }
 }

@@ -8,12 +8,12 @@
 import Foundation
 import SwiftUI
 
-public enum Souzu: Shupai {
+public enum Souzu: Shupai, CaseIterable {
     case iiSou // yiSuo
     case ryanSou // liangSuo
     case sanSou // sanSuo
     case suSou // siSuo
-    case uuSou(isRed: Bool) // wuSuo
+    case uuSou // wuSuo
     case roSou // liuSuo
     case chiSou // qiSuo
     case paaSou // baSuo
@@ -49,10 +49,6 @@ extension Souzu {
     }
     
     public var image: Image {
-        if case .uuSou(let isRed) = self {
-            Image(isRed ? "\(id)r" : id)
-        } else {
-            Image(id)
-        }
+        Image(id)
     }
 }

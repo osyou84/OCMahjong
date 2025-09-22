@@ -8,12 +8,12 @@
 import Foundation
 import SwiftUI
 
-public enum Pinzu: Shupai {
+public enum Pinzu: Shupai, CaseIterable {
     case iiPin // yiPin
     case ryanPin // liangPin
     case sanPin // sanPin
     case suPin // siPin
-    case uuPin(isRed: Bool) // wuPin
+    case uuPin // wuPin
     case roPin // liuPin
     case chiPin // qiPin
     case paaPin // baPin
@@ -49,10 +49,6 @@ extension Pinzu {
     }
     
     public var image: Image {
-        if case .uuPin(let isRed) = self {
-            Image(isRed ? "\(id)r" : id)
-        } else {
-            Image(id)
-        }
+        Image(id)
     }
 }

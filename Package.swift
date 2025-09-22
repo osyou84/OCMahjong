@@ -5,12 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "OCMahjong",
-    platforms: [
-        .iOS(.v16),
-        .macOS(.v13),
-        .tvOS(.v16),
-        .watchOS(.v9),
-    ],
+    platforms: [.iOS(.v16)],
     products: [
         .library(
             name: "OCMahjong",
@@ -20,8 +15,7 @@ let package = Package(
         .target(
             name: "OCMahjong",
             resources: [
-                .process("Resources/Media.xcassets"),
-                .process("Resources/Localizable.xcstrings")
+                .process("Resources/Media.xcassets")
             ]
         ),
         .testTarget(
