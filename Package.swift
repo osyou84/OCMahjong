@@ -19,10 +19,13 @@ let package = Package(
     targets: [
         .target(
             name: "OCMahjong",
-            resources: [.process("Resources/Media")]
+            resources: [
+                .process("Resources/Media.xcassets"),
+                .process("Resources/Localizable.xcstrings")
+            ]
         ),
         .testTarget(
-            name: "MahjongTests",
+            name: "OCMahjongTests",
             dependencies: ["OCMahjong"]
         ),
     ]

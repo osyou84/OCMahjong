@@ -20,7 +20,7 @@ public extension Yaku {
             "断么九"
         case .yakuhai:
             "役牌"
-        case .yipeiko:
+        case .iipeiko:
             "一盃口"
         case .rinshanKaiho:
             "嶺上開花"
@@ -38,7 +38,7 @@ public extension Yaku {
             "一気通貫"
         case .chanta:
             "混全帯么九"
-        case .qitoitsu:
+        case .chitoitsu:
             "七対子"
         case .sananko:
             "三暗刻"
@@ -52,7 +52,7 @@ public extension Yaku {
             "混一色"
         case .junchan:
             "純全帯么九"
-        case .liangPeiko:
+        case .ryanPeiko:
             "二盃口"
         case .shosangen:
             "小三元"
@@ -62,13 +62,13 @@ public extension Yaku {
             "清一色"
         case .kokushiMuso:
             "国士無双"
-        case .sianko:
+        case .suanko:
             "四暗刻"
         case .daisangen:
             "大三元"
-        case .shosishi:
+        case .syosushi:
             "小四喜"
-        case .daisishi:
+        case .daisushi:
             "大四喜"
         case .ziiso:
             "字一色"
@@ -76,9 +76,9 @@ public extension Yaku {
             "清老頭"
         case .ryuiso:
             "緑一色"
-        case .jiurenpoto:
+        case .churenpoto:
             "九蓮宝燈"
-        case .sikantsu:
+        case .sukantsu:
             "四槓子"
         case .tenho:
             "天和"
