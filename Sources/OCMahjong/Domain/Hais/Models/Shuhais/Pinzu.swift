@@ -15,7 +15,7 @@ public enum Pinzu: Shupai {
     case uuPin // wuPin
     case roPin // liuPin
     case chiPin // qiPin
-    case paPin // baPin
+    case paaPin // baPin
     case kyuPin // jiuPin
     
     public var id: String {
@@ -35,7 +35,7 @@ public enum Pinzu: Shupai {
         case .uuPin: return .five
         case .roPin: return .six
         case .chiPin: return .seven
-        case .paPin: return .eight
+        case .paaPin: return .eight
         case .kyuPin: return .nine
         }
     }

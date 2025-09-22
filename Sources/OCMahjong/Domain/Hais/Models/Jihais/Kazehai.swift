@@ -9,10 +9,10 @@ import Foundation
 
 /// Wind tiles (Kazehai: East, South, West, North).
 public enum Kazehai: Int, Jihai {
-    case east = 1
-    case south = 2
-    case west = 3
-    case north = 4
+    case ton = 1 // east / dong
+    case nan = 2 // south / nan
+    case sya = 3  // west / xi
+    case pei = 4 // north / bei
     
     public var jihaiType: JihaiType {
         .kazehai(self)
@@ -20,10 +20,10 @@ public enum Kazehai: Int, Jihai {
     
     public var id: String {
         switch self {
-        case .east: return "Tk"
-        case .south: return "Nk"
-        case .west: return "Xk"
-        case .north: return "Pk"
+        case .ton: return "Tk"
+        case .nan: return "Nk"
+        case .sya: return "Sk"
+        case .pei: return "Pk"
         }
     }
 }

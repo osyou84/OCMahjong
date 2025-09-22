@@ -13,9 +13,9 @@ import Foundation
 /// conventions (白・發・中). Keep this order if you rely on raw values for
 /// sorting, encoding, or display.
 public enum Sangenpai: Int, Jihai, CaseIterable {
-    case white = 1
-    case green = 2
-    case red = 3
+    case haku = 1 // white dragon
+    case hatsu = 2 // green dragon
+    case chun = 3 // red dragon
     
     public var jihaiType: JihaiType {
         .sangenpai(self)
@@ -23,9 +23,9 @@ public enum Sangenpai: Int, Jihai, CaseIterable {
     
     public var id: String {
         switch self {
-        case .white: return "Ws"
-        case .green: return "Gs"
-        case .red: return "Rs"
+        case .haku: return "Ws"
+        case .hatsu: return "Gs"
+        case .chun: return "Rs"
         }
     }
 }
