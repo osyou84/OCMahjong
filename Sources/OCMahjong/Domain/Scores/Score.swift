@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  Score.swift
+//
 //
 //  Created by 斉藤尚也 on 2024/02/27.
 //
