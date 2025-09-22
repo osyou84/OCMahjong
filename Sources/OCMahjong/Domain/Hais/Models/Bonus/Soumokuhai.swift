@@ -7,10 +7,10 @@
 
 /// Flower bonus tiles (Hana).
 public enum Soumokuhai: Int, Hanahai {
-    case plumBlossom = 1
-    case orchid = 2
-    case chrysanthemum = 3
-    case bamboo = 4
+    case ume = 1 // plumBlossom
+    case ran = 2 // orchid
+    case kiku = 3 // chrysanthemum
+    case take = 4 // bamboo
     
     public var hanahaiType: HanahaiType {
         .soumokuhai(self)
@@ -18,10 +18,10 @@ public enum Soumokuhai: Int, Hanahai {
     
     public var id: String {
         switch self {
-        case .plumBlossom: return "Pls"
-        case .orchid: return "Ors"
-        case .chrysanthemum: return "Chs"
-        case .bamboo: return "Bas"
+        case .ume: return "Us"
+        case .ran: return "Rs"
+        case .kiku: return "Ks"
+        case .take: return "Ts"
         }
     }
 }

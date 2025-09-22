@@ -19,7 +19,7 @@ let package = Package(
     targets: [
         .target(
             name: "OCMahjong",
-            resources: [.process("Media")]
+            resources: [.process("Resources/Media")]
         ),
         .testTarget(
             name: "MahjongTests",

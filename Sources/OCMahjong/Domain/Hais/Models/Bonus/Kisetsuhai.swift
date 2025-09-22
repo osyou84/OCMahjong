@@ -7,10 +7,10 @@
 
 /// Season bonus tiles (Kisetsu).
 public enum Kisetsuhai: Int, Hanahai {
-    case spring = 1
-    case summer = 2
-    case autumn = 3
-    case winter = 4
+    case haru = 1 // spring
+    case matsu = 2 // summer
+    case aki = 3 // autumn
+    case fuyu = 4 // winter
     
     public var hanahaiType: HanahaiType {
         .kisetsuhai(self)
@@ -18,10 +18,10 @@ public enum Kisetsuhai: Int, Hanahai {
     
     public var id: String {
         switch self {
-        case .spring: return "Spk"
-        case .summer: return "Suk"
-        case .autumn: return "Auk"
-        case .winter: return "Wik"
+        case .haru: return "Hk"
+        case .matsu: return "Nk"
+        case .aki: return "Ak"
+        case .fuyu: return "Fk"
         }
     }
 }
