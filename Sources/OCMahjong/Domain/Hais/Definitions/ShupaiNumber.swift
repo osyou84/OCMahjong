@@ -8,7 +8,7 @@
 import Foundation
 
 /// Valid numbers for suited tiles (1–9).
-public enum SuitNumber: Int, CaseIterable {
+public enum ShupaiNumber: Int, CaseIterable {
     case one = 1
     case two = 2
     case three = 3
