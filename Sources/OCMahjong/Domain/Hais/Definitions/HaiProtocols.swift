@@ -12,7 +12,6 @@ import Foundation
 public protocol Hai: Identifiable {
     var id: String { get }
     var haiType: HaiType { get }
-    var name: LocalizedStringResource { get }
 }
 
 /// Suited tile: adds the suit (manzu/pinzu/souzu) and a valid number.
@@ -36,12 +35,12 @@ public extension Jihai where Self: Hai {
     var haiType: HaiType { .jihai }
 }
 
-/// Bonus tile: flowers and seasons via `BonusType`.
-public protocol Bonus: Hai {
-    var bonusType: BonusType { get }
+/// Bonus tile: flowers and seasons via `HanahaiType`.
+public protocol Hanahai: Hai {
+    var hanahaiType: HanahaiType { get }
 }
 
 /// Default mapping from `Bonus` to its `HaiType`.
-public extension Bonus where Self: Hai {
-    var haiType: HaiType { .bonus }
+public extension Hanahai where Self: Hai {
+    var haiType: HaiType { .hanahai }
 }
