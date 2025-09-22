@@ -42,6 +42,6 @@ extension Sangenpai {
     }
     
     public var image: Image {
-        Image(id)
+        Image(id, bundle: .module)
     }
 }

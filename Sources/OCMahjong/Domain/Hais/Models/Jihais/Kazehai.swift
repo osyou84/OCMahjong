@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 /// Wind tiles.
-public enum Kazehai: Int, Jihai {
+public enum Kazehai: Int, Jihai, CaseIterable {
     case ton = 1 // east / dong
     case nan = 2 // south / nan
     case sya = 3  // west / xi
@@ -41,6 +41,6 @@ extension Kazehai {
     }
     
     public var image: Image {
-        Image(id)
+        Image(id, bundle: .module)
     }
 }

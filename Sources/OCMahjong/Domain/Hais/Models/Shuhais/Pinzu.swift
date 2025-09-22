@@ -49,6 +49,6 @@ extension Pinzu {
     }
     
     public var image: Image {
-        Image(id)
+        Image(id, bundle: .module)
     }
 }
