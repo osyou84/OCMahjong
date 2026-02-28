@@ -14,7 +14,7 @@ public enum HaiType {
 }
 
 /// The three suited tile families.
-public enum ShuhaiType {
+public enum ShupaiType {
     case manzu // characters
     case pinzu // dots
     case souzu // bamboos

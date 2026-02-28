@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by 斉藤尚也 on 2023/12/15.
 //
@@ -19,7 +19,7 @@ public enum Yaku: YakuProtocol, CaseIterable {
     case chankan
     case haiteiRaoyue
     case hoteiRaoyui
-    
+
     case sanshokuDoujun
     case toitoiho
     case ikkitsuukan
@@ -29,15 +29,15 @@ public enum Yaku: YakuProtocol, CaseIterable {
     case sanshokuDouko
     case sankantsu
     case doubleRiichi
-    
+
     case honiso
     case junchan
     case ryanPeiko
     case shosangen
-    
+
     case honroto
     case chinitsu
-    
+
     case kokushiMuso
     case suanko
     case daisangen
@@ -50,7 +50,7 @@ public enum Yaku: YakuProtocol, CaseIterable {
     case sukantsu
     case tenho
     case chiho
-    
+
     public var hansu: Int? {
         switch self {
         case .riichi, .ippatsu, .tsumo, .pinfu, .tanyao, .yakuhai, .iipeiko, .rinshanKaiho, .chankan, .haiteiRaoyue, .hoteiRaoyui:
@@ -67,16 +67,23 @@ public enum Yaku: YakuProtocol, CaseIterable {
             nil
         }
     }
-    
+
     public var isYakuman: Bool {
-        hansu == nil
+        switch self {
+        case .kokushiMuso, .suanko, .daisangen, .syosushi, .daisushi,
+             .ziiso, .chinroto, .ryuiso, .churenpoto, .sukantsu, .tenho, .chiho:
+            true
+        default:
+            false
+        }
     }
-    
+
     public var limit: YakuLimit {
         switch self {
-        case .riichi, .ippatsu, .tsumo, .pinfu, .iipeiko, .chitoitsu, .doubleRiichi, .ryanPeiko, .tenho, .kokushiMuso, .churenpoto, .suanko:
+        case .riichi, .ippatsu, .tsumo, .pinfu, .iipeiko, .chitoitsu, .doubleRiichi, .ryanPeiko,
+             .tenho, .chiho, .kokushiMuso, .churenpoto, .suanko:
             .memzenOnly
-        case .sanshokuDoujun, .ikkitsuukan, .chanta, .honiso, .junchan, .chiho:
+        case .sanshokuDoujun, .ikkitsuukan, .chanta, .honiso, .junchan:
             .withKuiSagari(hansu: hansu ?? 1)
         case .sananko:
             .ankoOutsideNakiOk

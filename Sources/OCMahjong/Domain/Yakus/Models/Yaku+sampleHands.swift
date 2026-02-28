@@ -6,8 +6,21 @@
 //
 
 public extension Yaku {
+    /// 手牌の構成だけでは役が表現できない（偶然役・局状況依存の役）場合は true。
+    /// `requiresContext == true` の場合、`sampleHands` は空配列を返す。
+    var requiresContext: Bool {
+        switch self {
+        case .riichi, .ippatsu, .tsumo, .rinshanKaiho, .chankan,
+             .haiteiRaoyue, .hoteiRaoyui, .doubleRiichi, .tenho, .chiho:
+            true
+        default:
+            false
+        }
+    }
+
     var sampleHands: [any Hai] {
         switch self {
+        // MARK: - 1飜
         case .pinfu:
             [
                 Pinzu.iiPin, Pinzu.iiPin,
@@ -40,6 +53,7 @@ public extension Yaku {
                 Souzu.roSou, Souzu.roSou, Souzu.roSou,
                 Souzu.chiSou, Souzu.chiSou, Souzu.chiSou,
             ]
+        // MARK: - 2飜
         case .sanshokuDoujun:
             [
                 Kazehai.ton, Kazehai.ton,
@@ -47,6 +61,14 @@ public extension Yaku {
                 Pinzu.iiPin, Pinzu.ryanPin, Pinzu.sanPin,
                 Souzu.iiSou, Souzu.ryanSou, Souzu.sanSou,
                 Kazehai.pei, Kazehai.pei, Kazehai.pei,
+            ]
+        case .toitoiho:
+            [
+                Kazehai.ton, Kazehai.ton,
+                Manzu.sanMan, Manzu.sanMan, Manzu.sanMan,
+                Pinzu.roPin, Pinzu.roPin, Pinzu.roPin,
+                Souzu.kyuSou, Souzu.kyuSou, Souzu.kyuSou,
+                Sangenpai.haku, Sangenpai.haku, Sangenpai.haku,
             ]
         case .ikkitsuukan:
             [
@@ -98,6 +120,7 @@ public extension Yaku {
                 Pinzu.sanPin, Pinzu.sanPin, Pinzu.sanPin, Pinzu.sanPin,
                 Souzu.kyuSou, Souzu.kyuSou, Souzu.kyuSou, Souzu.kyuSou,
             ]
+        // MARK: - 3飜
         case .honiso:
             [
                 Sangenpai.chun, Sangenpai.chun,
@@ -122,6 +145,7 @@ public extension Yaku {
                 Souzu.roSou, Souzu.roSou, Souzu.chiSou,
                 Souzu.chiSou, Souzu.paaSou, Souzu.paaSou,
             ]
+        // MARK: - 4飜
         case .shosangen:
             [
                 Sangenpai.haku, Sangenpai.haku,
@@ -138,6 +162,7 @@ public extension Yaku {
                 Pinzu.iiPin, Pinzu.iiPin, Pinzu.iiPin,
                 Kazehai.pei, Kazehai.pei, Kazehai.pei
             ]
+        // MARK: - 6飜
         case .chinitsu:
             [
                 Manzu.kyuMan, Manzu.kyuMan,
@@ -146,6 +171,7 @@ public extension Yaku {
                 Manzu.chiMan, Manzu.chiMan, Manzu.chiMan,
                 Manzu.paaMan, Manzu.paaMan, Manzu.paaMan,
             ]
+        // MARK: - 役満
         case .kokushiMuso:
             [
                 Manzu.iiMan, Manzu.kyuMan, Pinzu.iiPin, Pinzu.kyuPin, Souzu.iiSou, Souzu.kyuSou,
@@ -153,7 +179,7 @@ public extension Yaku {
                 Sangenpai.haku, Sangenpai.hatsu, Sangenpai.chun,
                 Sangenpai.chun
             ]
-        case .suanko, .toitoiho:
+        case .suanko:
             [
                 Kazehai.sya, Kazehai.sya,
                 Manzu.roMan, Manzu.roMan, Manzu.roMan,
@@ -204,7 +230,7 @@ public extension Yaku {
         case .ryuiso:
             [
                 Sangenpai.hatsu, Sangenpai.hatsu,
-                Souzu.ryanSou,Souzu.ryanSou,
+                Souzu.ryanSou, Souzu.ryanSou,
                 Souzu.sanSou, Souzu.sanSou,
                 Souzu.suSou, Souzu.suSou,
                 Souzu.roSou, Souzu.roSou, Souzu.roSou,
@@ -227,14 +253,10 @@ public extension Yaku {
                 Souzu.kyuSou, Souzu.kyuSou, Souzu.kyuSou, Souzu.kyuSou,
                 Kazehai.ton, Kazehai.ton, Kazehai.ton, Kazehai.ton
             ]
-        default:
-            [
-                Pinzu.iiPin, Pinzu.iiPin,
-                Pinzu.ryanPin, Pinzu.sanPin, Pinzu.suPin,
-                Manzu.chiMan, Manzu.paaMan, Manzu.kyuMan,
-                Souzu.uuSou, Souzu.uuSou, Souzu.uuSou,
-                Sangenpai.haku, Sangenpai.haku, Sangenpai.haku
-            ]
+        // MARK: - 偶然役（手牌だけでは表現不可）
+        case .riichi, .ippatsu, .tsumo, .rinshanKaiho, .chankan,
+             .haiteiRaoyue, .hoteiRaoyui, .doubleRiichi, .tenho, .chiho:
+            []
         }
     }
 }
