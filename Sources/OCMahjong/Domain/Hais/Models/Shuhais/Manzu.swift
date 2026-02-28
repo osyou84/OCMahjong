@@ -36,6 +36,10 @@ public enum Manzu: Shupai, CaseIterable {
         }
     }
 
+    public static var allCases: [Manzu] {
+        [.iiMan, .ryanMan, .sanMan, .suMan, .uuMan, .roMan, .chiMan, .paaMan, .kyuMan]
+    }
+
     public var id: String {
         switch self {
         case .unknown: return "?m"

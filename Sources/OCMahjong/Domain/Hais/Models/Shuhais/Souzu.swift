@@ -36,6 +36,10 @@ public enum Souzu: Shupai, CaseIterable {
         }
     }
 
+    public static var allCases: [Souzu] {
+        [.iiSou, .ryanSou, .sanSou, .suSou, .uuSou, .roSou, .chiSou, .paaSou, .kyuSou]
+    }
+
     public var id: String {
         switch self {
         case .unknown: return "?s"

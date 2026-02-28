@@ -36,6 +36,10 @@ public enum Pinzu: Shupai, CaseIterable {
         }
     }
 
+    public static var allCases: [Pinzu] {
+        [.iiPin, .ryanPin, .sanPin, .suPin, .uuPin, .roPin, .chiPin, .paaPin, .kyuPin]
+    }
+
     public var id: String {
         switch self {
         case .unknown: return "?p"
