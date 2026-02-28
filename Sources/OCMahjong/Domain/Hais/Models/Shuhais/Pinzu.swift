@@ -8,8 +8,6 @@
 import SwiftUI
 
 /// 筒子（ピンズ）の牌を表す列挙型。
-/// case の宣言順序（一〜九）が `ShupaiNumber` と対応しており、
-/// `number` は `Shupai` プロトコルのデフォルト実装によって自動的に解決される。
 public enum Pinzu: Shupai, CaseIterable {
     case iiPin   // 一筒（イーピン）
     case ryanPin // 二筒（リャンピン）
@@ -20,14 +18,54 @@ public enum Pinzu: Shupai, CaseIterable {
     case chiPin  // 七筒（チーピン）
     case paaPin  // 八筒（パーピン）
     case kyuPin  // 九筒（キューピン）
+    case unknown // 1〜9 以外の数値で生成した場合
 
-    public var id: String { "\(number.rawValue)p" }
+    /// 数値（1〜9）から筒子を生成する。範囲外の場合は `.unknown`。
+    public init(_ number: Int) {
+        switch number {
+        case 1: self = .iiPin
+        case 2: self = .ryanPin
+        case 3: self = .sanPin
+        case 4: self = .suPin
+        case 5: self = .uuPin
+        case 6: self = .roPin
+        case 7: self = .chiPin
+        case 8: self = .paaPin
+        case 9: self = .kyuPin
+        default: self = .unknown
+        }
+    }
+
+    public var id: String {
+        switch self {
+        case .unknown: return "?p"
+        default: return "\(number.rawValue)p"
+        }
+    }
     public var shupaiType: ShupaiType { .pinzu }
-    // number は Shupai プロトコル extension のデフォルト実装（case 順 = 数値順）
+    public var number: ShupaiNumber {
+        switch self {
+        case .iiPin:   return .one
+        case .ryanPin: return .two
+        case .sanPin:  return .three
+        case .suPin:   return .four
+        case .uuPin:   return .five
+        case .roPin:   return .six
+        case .chiPin:  return .seven
+        case .paaPin:  return .eight
+        case .kyuPin:  return .nine
+        case .unknown: fatalError("Pinzu.unknown has no number")
+        }
+    }
 }
 
 // MARK: - UI
 extension Pinzu {
-    public var name: String { "\(number.rawValue.kansuji)筒" }
+    public var name: String {
+        switch self {
+        case .unknown: return "不明筒"
+        default: return "\(number.rawValue.kansuji)筒"
+        }
+    }
     public var image: Image { Image(id, bundle: .module) }
 }
