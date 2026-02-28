@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 /// すべての牌が準拠するベースプロトコル。
 /// 安定した識別子（`id`）、牌の大分類（`haiType`）、牌名（`name`）を提供する。
@@ -16,6 +17,8 @@ public protocol Hai: Identifiable, Sendable {
     var haiType: HaiType { get }
     /// 牌の名称（例: "一萬"、"東"、"白"）。
     var name: String { get }
+    /// 牌の画像。
+    var image: Image { get }
 }
 
 /// 数牌（萬子・筒子・索子）のプロトコル。
