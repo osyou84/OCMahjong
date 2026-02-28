@@ -7,7 +7,7 @@
 
 /// 役が準拠するプロトコル。
 /// 役名・翻数・役満判定・鳴き制限を提供する。
-public protocol YakuProtocol {
+public protocol YakuProtocol: Sendable {
     /// 役名（日本語表記、例: "立直"、"平和"）。
     var name: String { get }
     /// 翻数。役満の場合は `nil`。

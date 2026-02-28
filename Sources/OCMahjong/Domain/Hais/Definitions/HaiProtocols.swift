@@ -9,7 +9,7 @@ import Foundation
 
 /// すべての牌が準拠するベースプロトコル。
 /// 安定した識別子（`id`）、牌の大分類（`haiType`）、牌名（`name`）を提供する。
-public protocol Hai: Identifiable {
+public protocol Hai: Identifiable, Sendable {
     /// 牌を一意に識別する文字列（例: "1m"、"Tk"、"Ws"）。
     var id: String { get }
     /// 牌の大分類（数牌 or 字牌）。
