@@ -1,20 +1,10 @@
 # OCMahjong
 
-![Swift](https://img.shields.io/badge/Swift-6.0-orange.svg)
-![Platforms](https://img.shields.io/badge/platforms-iOS%2016%2B-lightgrey.svg)
-![SPM](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+[![GitHub release](https://img.shields.io/github/release/osyou84/OCMahjong)](https://github.com/osyou84/OCMahjong/releases/latest)
+[![Swift](https://img.shields.io/badge/Swift-6.0-orange)](https://swift.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue)](https://github.com/osyou84/OCAPIClinet/blob/master/LICENSE)
 
-麻雀の役情報・点数計算・牌モデルを提供する Swift Package です。
-
-## 機能
-
-- **牌モデル** — 数牌（萬子・筒子・索子）と字牌（風牌・三元牌）の完全な定義
-- **役情報** — 43種類の役（翻数・食い下がり・役満判定・サンプル手牌）
-- **点数計算** — 三人麻雀 / 四人麻雀のツモ・ロン点数を算出
-
-> **Note**
-> 牌効率解析（シャンテン数計算）は現在未実装です。
+麻雀の役情報・点数計算・牌モデルを提供するライブラリです。
 
 ## 動作環境
 
@@ -24,15 +14,22 @@
 | iOS | 16.0+ |
 | Xcode | 16.0+ |
 
-## インストール
+## 機能
+- **牌モデル** — 数牌（萬子・筒子・索子）と字牌（風牌・三元牌）の完全な定義
+- **役情報** — 43種類の役（翻数・食い下がり・役満判定・サンプル手牌）
+- **点数計算** — 三人麻雀 / 四人麻雀のツモ・ロン点数を算出
 
+> **Note**
+> 牌効率解析（シャンテン数計算）は現在未実装です。
+
+## インストール
 ### Swift Package Manager
 
 `Package.swift` の `dependencies` に追加してください。
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/osyou84/OCMahjong.git", from: "0.1.0")
+    .package(url: "https://github.com/osyou84/OCMahjong.git", from: "<version>")
 ]
 ```
 
