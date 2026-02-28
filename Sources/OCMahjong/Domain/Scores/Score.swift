@@ -7,15 +7,22 @@
 
 import Foundation
 
+/// 点数計算を行う構造体。
+/// 翻数・符数・人数（三麻 / 四麻）・親子の別を元に、ツモ点・ロン点を算出する。
 public struct Score {
+    /// 対局人数。
     public enum NumberOfPeople: Int, CaseIterable {
-        case three = 3
-        case four = 4
+        case three = 3 // 三人麻雀（三麻）
+        case four  = 4 // 四人麻雀（四麻）
     }
 
+    /// 親かどうか（`true` = 親、`false` = 子）。
     public let isParent: Bool
+    /// 翻数。
     public let doubles: Doubles
+    /// 符数。
     public let points: Points
+    /// 対局人数。
     public let numberOfPeople: NumberOfPeople
 
     public init(isParent: Bool, doubles: Doubles, points: Points, numberOfPeople: NumberOfPeople) {
@@ -25,6 +32,11 @@ public struct Score {
         self.numberOfPeople = numberOfPeople
     }
 
+    /// ツモ和了時の支払い点数を返す。
+    /// - Returns: `(parent:, child:)` のタプル。
+    ///   親のツモは全員が `parent` 点を支払い、
+    ///   子のツモは親が `parent` 点、他の子が各 `child` 点を支払う。
+    ///   符・翻の組み合わせが無効な場合は `nil` を返す。
     public func getThumoPoint() -> (parent: Int, child: Int)? {
         switch numberOfPeople {
         case .three: return thumoPointThreePerson()
@@ -32,6 +44,8 @@ public struct Score {
         }
     }
 
+    /// ロン和了時の支払い点数を返す。
+    /// - Returns: 放銃者が支払う点数。符・翻の組み合わせが無効な場合は `nil` を返す。
     public func getRonPoint() -> Int? {
         switch numberOfPeople {
         case .three: return ronPointThreePerson()

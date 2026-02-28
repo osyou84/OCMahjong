@@ -7,27 +7,34 @@
 
 import Foundation
 
-/// Base protocol for all tiles. Conforming types provide a stable identifier
-/// and their high-level category via `haiType`.
+/// すべての牌が準拠するベースプロトコル。
+/// 安定した識別子（`id`）、牌の大分類（`haiType`）、牌名（`name`）を提供する。
 public protocol Hai: Identifiable {
+    /// 牌を一意に識別する文字列（例: "1m"、"Tk"、"Ws"）。
     var id: String { get }
+    /// 牌の大分類（数牌 or 字牌）。
     var haiType: HaiType { get }
+    /// 牌の名称（例: "一萬"、"東"、"白"）。
     var name: String { get }
 }
 
-/// Suited tile: adds the suit (manzu/pinzu/souzu) and a valid number.
+/// 数牌（萬子・筒子・索子）のプロトコル。
+/// スーツ（`shupaiType`）と数字（`number`）を追加で提供する。
 public protocol Shupai: Hai {
+    /// 数牌のスーツ（萬子 / 筒子 / 索子）。
     var shupaiType: ShupaiType { get }
+    /// 数牌の数字（一〜九）。
     var number: ShupaiNumber { get }
 }
 
-/// Default mapping from `Suit` to its `HaiType`.
+/// `Shupai` のデフォルト実装: `haiType` は常に `.shupai`。
 public extension Shupai {
     var haiType: HaiType { .shupai }
 }
 
-/// Default `number` implementation for enums whose case order matches 1–9.
-/// Conforming types must declare `CaseIterable` and keep cases in ascending order.
+/// `number` のデフォルト実装。
+/// case の宣言順序が数値の昇順（一〜九）と一致する `CaseIterable & Equatable` な型で利用できる。
+/// 準拠する型は必ず case を昇順で宣言すること。
 public extension Shupai where Self: CaseIterable & Equatable {
     var number: ShupaiNumber {
         let index = Array(Self.allCases).firstIndex(of: self)!
@@ -35,12 +42,13 @@ public extension Shupai where Self: CaseIterable & Equatable {
     }
 }
 
-/// Honor tile: winds and dragons via `JihaiType`.
+/// 字牌（風牌・三元牌）のプロトコル。
 public protocol Jihai: Hai {
+    /// 字牌の種類（風牌 or 三元牌）。
     var jihaiType: JihaiType { get }
 }
 
-/// Default mapping from `Honor` to its `HaiType`.
+/// `Jihai` のデフォルト実装: `haiType` は常に `.jihai`。
 public extension Jihai {
     var haiType: HaiType { .jihai }
 }

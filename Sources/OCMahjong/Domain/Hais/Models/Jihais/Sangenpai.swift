@@ -8,40 +8,36 @@
 import Foundation
 import SwiftUI
 
-/// Dragon tiles.
+/// 三元牌（サンゲンパイ）を表す列挙型。
 ///
-/// Note: The ordering (white = 1, green = 2, red = 3) follows Japanese Mahjong
-/// conventions (白・發・中). Keep this order if you rely on raw values for
-/// sorting, encoding, or display.
+/// 注意: 順序（白=1、發=2、中=3）は日本麻雀の慣習（白・發・中）に従っている。
+/// `rawValue` をソート・エンコード・表示に用いる場合はこの順序を維持すること。
 public enum Sangenpai: Int, Jihai, CaseIterable {
-    case haku = 1 // white dragon
-    case hatsu = 2 // green dragon
-    case chun = 3 // red dragon
-    
-    public var jihaiType: JihaiType {
-        .sangenpai(self)
-    }
-    
+    case haku  = 1 // 白（ハク）
+    case hatsu = 2 // 發（ハツ）
+    case chun  = 3 // 中（チュン）
+
+    public var jihaiType: JihaiType { .sangenpai(self) }
+
+    /// 牌の識別子。アセット名と対応している（例: "Ws" = 白）。
     public var id: String {
         switch self {
-        case .haku: return "Ws"
+        case .haku:  return "Ws"
         case .hatsu: return "Gs"
-        case .chun: return "Rs"
+        case .chun:  return "Rs"
         }
     }
 }
 
-// MARK: - UIs
+// MARK: - UI
 extension Sangenpai {
     public var name: String {
         switch self {
-        case .haku: return "白"
+        case .haku:  return "白"
         case .hatsu: return "發"
-        case .chun: return "中"
+        case .chun:  return "中"
         }
     }
-    
-    public var image: Image {
-        Image(id, bundle: .module)
-    }
+
+    public var image: Image { Image(id, bundle: .module) }
 }

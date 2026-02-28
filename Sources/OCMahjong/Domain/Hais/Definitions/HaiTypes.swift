@@ -7,21 +7,28 @@
 
 import Foundation
 
-/// High-level Mahjong tile categories.
+/// 牌の大分類。
 public enum HaiType {
-    case shupai // suits
-    case jihai // honors
+    /// 数牌（萬子・筒子・索子）
+    case shupai
+    /// 字牌（風牌・三元牌）
+    case jihai
 }
 
-/// The three suited tile families.
+/// 数牌のスーツ（種類）。
 public enum ShupaiType {
-    case manzu // characters
-    case pinzu // dots
-    case souzu // bamboos
+    /// 萬子（マンズ）
+    case manzu
+    /// 筒子（ピンズ）
+    case pinzu
+    /// 索子（ソーズ）
+    case souzu
 }
 
-/// Honor tiles.
+/// 字牌の種類。
 public enum JihaiType {
-    case kazehai(Kazehai) // winds
-    case sangenpai(Sangenpai) // dragons
+    /// 風牌（東・南・西・北）
+    case kazehai(Kazehai)
+    /// 三元牌（白・發・中）
+    case sangenpai(Sangenpai)
 }

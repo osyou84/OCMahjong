@@ -7,20 +7,23 @@
 
 import SwiftUI
 
+/// 筒子（ピンズ）の牌を表す列挙型。
+/// case の宣言順序（一〜九）が `ShupaiNumber` と対応しており、
+/// `number` は `Shupai` プロトコルのデフォルト実装によって自動的に解決される。
 public enum Pinzu: Shupai, CaseIterable {
-    case iiPin // yiPin
-    case ryanPin // liangPin
-    case sanPin // sanPin
-    case suPin // siPin
-    case uuPin // wuPin
-    case roPin // liuPin
-    case chiPin // qiPin
-    case paaPin // baPin
-    case kyuPin // jiuPin
+    case iiPin   // 一筒（イーピン）
+    case ryanPin // 二筒（リャンピン）
+    case sanPin  // 三筒（サンピン）
+    case suPin   // 四筒（スーピン）
+    case uuPin   // 五筒（ウーピン）
+    case roPin   // 六筒（ローピン）
+    case chiPin  // 七筒（チーピン）
+    case paaPin  // 八筒（パーピン）
+    case kyuPin  // 九筒（キューピン）
 
     public var id: String { "\(number.rawValue)p" }
     public var shupaiType: ShupaiType { .pinzu }
-    // number は protocol extension のデフォルト実装（case 順 = 数値順）
+    // number は Shupai プロトコル extension のデフォルト実装（case 順 = 数値順）
 }
 
 // MARK: - UI
