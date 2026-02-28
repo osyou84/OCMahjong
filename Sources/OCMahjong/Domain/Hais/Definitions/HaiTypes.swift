@@ -8,7 +8,7 @@
 import Foundation
 
 /// 牌の大分類。
-public enum HaiType: Sendable {
+public enum HaiType: Sendable, CaseIterable {
     /// 数牌（萬子・筒子・索子）
     case shupai
     /// 字牌（風牌・三元牌）
@@ -16,7 +16,7 @@ public enum HaiType: Sendable {
 }
 
 /// 数牌のスーツ（種類）。
-public enum ShupaiType: Sendable {
+public enum ShupaiType: Sendable, CaseIterable {
     /// 萬子（マンズ）
     case manzu
     /// 筒子（ピンズ）
