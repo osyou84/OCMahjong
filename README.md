@@ -189,28 +189,6 @@ if let ron = score.getRonPoint() {
 
 </details>
 
-## コントリビューション
-
-バグ報告・機能要望・プルリクエストを歓迎します。
-
-### Issue の送り方
-
-- バグ報告は **[Bug Report]** テンプレートを使用してください。
-- 機能要望は **[Feature Request]** テンプレートを使用してください。
-
-### Pull Request の手順
-
-1. このリポジトリを Fork する
-2. 作業ブランチを作成する（例: `git checkout -b feature/shanten`）
-3. 変更をコミットする（例: `git commit -m 'Add shanten calculation'`）
-4. ブランチを Push する（`git push origin feature/shanten`）
-5. Pull Request を作成する
-
-### 開発環境
-
-- Xcode 16+ / iOS Simulator で動作確認してください（`swift build` は SwiftUI の制約でmacOS CLI環境では失敗します）
-- テストは `swift test` または Xcode の Test ナビゲーターから実行できます
-
 ## ライセンス
 
 [MIT License](./LICENSE)
